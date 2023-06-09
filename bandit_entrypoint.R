@@ -15,29 +15,29 @@ start_time<-Sys.time()
 #### Parse Options
 option_list <- list(
   make_option(c("-m", "--mean"), default = .2,
-              help = "Effect Size (Cohens D)"), 
+              help = "What is the Effect Size (Cohens D) of the optimal arm?"), 
   make_option(c("-a", "--algorithm"), default = "ucb",
-              help = "Bandit Strategy"), 
+              help = "Which bandit strategy should be used? ['epsilon', 'ucb', 'thompson']"), 
   make_option(c("-e", "--epsilon"), default = .05,
-              help = "epsilong parameter"), 
+              help = "If epsilon-greedy, what proportion of samples should explore?"), 
   make_option(c("-c", "--ucbc"), default = 10,
-              help = "Exploration Parameter"), 
+              help = "If UCB, what is the hyperparameter (c) controlling exploration levels?"), 
   make_option(c("-p", "--prior_mean"), default = 0,
-              help = "Prior mean"), 
+              help = "If thompson sampling, what is the prior mean (constrained across both arms)"), 
   make_option(c("-v", "--prior_var"), default = 10,
-              help = "prior variance"), 
+              help = "If thompson sampling, what is the prior variance (constrained across both arms)"), 
   make_option(c("-d", "--prior_df_var"), default = 1,
-              help = "prior df for variance"), 
+              help = "If thompson sampling, what is the prior degrees of freedom (constrained across both arms)"), 
   make_option(c("-k", "--prior_precision"), default = 1,
-              help = "prior precision"), 
+              help = "If thompson sampling, what is the prior variance (constrained across both arms)"), 
   make_option(c("-w", "--warmup"), default = 10,
-              help = "Warmup Observations"), 
+              help = "How many warmup observations should be sampled at random?"), 
   make_option(c("-i", "--iter"), default = 1000,
-              help = "Iterations through the bandit"), 
+              help = "How many total samples should the MAB generate?"), 
   make_option(c("-o", "--output"), default = 'mab-sim-jr',
-              help = "What bucket to write to"),
+              help = "Which S3 bucket should the output be written to?"),
   make_option(c("-s", "--samples"), default = 5000,
-              help = "Samples of MC iteration")
+              help = "How many Monte Carlo samples should be drawn using this configuration?")
   )
 
 set.seed(54321)
