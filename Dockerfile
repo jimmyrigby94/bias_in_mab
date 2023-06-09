@@ -28,7 +28,9 @@ RUN Rscript --no-echo -e 'install.packages("doRNG", repos = "https://cloud.R-pro
 RUN Rscript --no-echo -e 'install.packages("optparse", repos = "https://cloud.R-project.org")'
 
 COPY ./bandit_entrypoint.R /opt/amazon/bandit_entrypoint.R
+COPY ./helpers.R /opt/amazon/helpers.R
 COPY ./run_bandit.sh /opt/amazon/run_bandit.sh
+
 
 RUN chmod +x /opt/amazon/run_bandit.sh
 
